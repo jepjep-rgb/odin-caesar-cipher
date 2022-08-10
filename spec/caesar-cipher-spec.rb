@@ -10,5 +10,17 @@ RSpec.describe 'Caesar Cipher' do
       result = "bcdef"
       expect(caesar_cipher(string, 1)).to eq(result)
     end
+
+    it 'returns caesar cipher encypted words(2)' do
+      string = "hello world"
+      result = "jgnnq yqtnf"
+      expect(caesar_cipher(string, 2)).to eq(result)
+    end
+
+    it 'returns caesar cipher encrypted words with capitalization' do
+      string = "What a string"
+      result = "Bmfy f xywnsl"
+      expect(caesar_cipher(string, 5)).to eq(result)
+    end
   end
 end
