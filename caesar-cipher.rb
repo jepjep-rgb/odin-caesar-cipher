@@ -1,20 +1,23 @@
 def caesar_check(char_numbers)
   char_numbers.each do |char|
+    if char == 32
+      next
+    end
+    
     unless char.between?(65, 122)
-      return false
+      return true
     end
   end
-  return true
 end
 
 def caesar_shift(char_numbers, shift)
   shifted_numbers = char_numbers.map do |char|
-    if char <= 90
+    if char.between?(65, 90)
       char += shift
       if char > 90
         char = 64 + (char % 90)
       end
-    elsif char <= 122
+    elsif char.between?(91, 122)
       char += shift
       if char > 122
         char = 90 + (char % 122)
