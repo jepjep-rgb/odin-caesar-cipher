@@ -41,4 +41,6 @@ def caesar_cipher(string, shift)
   end
   
   caesar_shifted = caesar_shift(char_numbers, norm_shift)
+
+  caesar_string = caesar_shifted.map { |char| char.chr }.join('')
 end
