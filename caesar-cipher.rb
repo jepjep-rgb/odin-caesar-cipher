@@ -7,6 +7,24 @@ def caesar_check(char_numbers)
   return true
 end
 
+def caesar_shift(char_numbers, shift)
+  shifted_numbers = char_numbers.map do |char|
+    if char <= 90
+      char += shift
+      if char > 90
+        char = 64 + (char % 90)
+      end
+    elsif char <= 122
+      char += shift
+      if char > 122
+        char = 90 + (char % 122)
+      end
+    end
+    char
+  end
+  shifted_numbers
+end
+
 def shift_check(shift)
   while shift < 0
     shift = 26 + shift
@@ -21,4 +39,6 @@ def caesar_cipher(string, shift)
   unless caesar_check(char_numbers)
     return
   end
+  
+  caesar_shifted = caesar_shift(char_numbers, norm_shift)
 end
